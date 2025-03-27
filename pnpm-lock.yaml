@@ -42,9 +42,15 @@ importers:
       '@docusaurus/types':
         specifier: 3.7.0
         version: 3.7.0(acorn@8.14.1)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+      prismjs:
+        specifier: ^1.30.0
+        version: 1.30.0
       typescript:
         specifier: ~5.8.2
         version: 5.8.2
+      utility-types:
+        specifier: ^3.11.0
+        version: 3.11.0
       wrangler:
         specifier: ^4.5.0
         version: 4.5.0(@cloudflare/workers-types@4.20250321.0)
