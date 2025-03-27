@@ -48,7 +48,7 @@ const config: Config = {
     footer: {
       style: 'dark',
       links: [],
-      copyright: `Copyright (c) 2025 ScopeDB Inc. All rights reserved.`
+      copyright: `Copyright (c) ${new Date().getFullYear()} ScopeDB Inc. All rights reserved.`
     },
     prism: {
       theme: prismThemes.github,
