@@ -2,6 +2,8 @@ import { themes as prismThemes } from 'prism-react-renderer';
 import type { Config } from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
 
+import remarkDefList from 'remark-deflist';
+
 const config: Config = {
   title: 'ScopeDB Documents',
   favicon: 'brand-kit/favicon.svg',
@@ -81,6 +83,7 @@ const config: Config = {
         path: 'reference',
         routeBasePath: 'reference',
         sidebarPath: './reference/sidebars.ts',
+        remarkPlugins: [remarkDefList],
       },
     ],
   ],
