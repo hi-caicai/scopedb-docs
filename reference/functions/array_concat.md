@@ -1,4 +1,4 @@
-# array_concat, `||`
+# array_concat, ||
 
 Returns a concatenation of two arrays.
 

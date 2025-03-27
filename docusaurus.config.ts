@@ -60,6 +60,19 @@ const config: Config = {
     }
   } satisfies Preset.ThemeConfig,
 
+  markdown: {
+    parseFrontMatter: async (params) => {
+      const result = await params.defaultParseFrontMatter(params);
+
+      // change the default value of toc_max_heading_level from 3 to 2
+      if (!result.frontMatter.toc_max_heading_level) {
+        result.frontMatter.toc_max_heading_level = 2;
+      }
+
+      return result;
+    }
+  },
+
   plugins: [
     [
       '@docusaurus/plugin-content-docs',

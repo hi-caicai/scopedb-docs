@@ -37,7 +37,7 @@ Array slice returns a slice defined by the two slice parameters, `<start>` and `
 The default value for `<step>` is 1. The default values for `<start>` and `<end>` depend on the sign of `<step>`:
 
 | Condition | start | end    |
-|-----------|-------|--------|
+| --------- | ----- | ------ |
 | step >= 0 | 0     | len    |
 | step < 0  | len-1 | -len-1 |
 

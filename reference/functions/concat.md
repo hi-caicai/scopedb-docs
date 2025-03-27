@@ -1,4 +1,4 @@
-# concat, `||`
+# concat, ||
 
 Concatenates two strings.
 

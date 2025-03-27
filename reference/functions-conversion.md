@@ -1,14 +1,12 @@
 ---
 sidebar_label: Conversion
-toc_min_heading_level: 2
-toc_max_heading_level: 2
 ---
 
 # Conversion functions
 
 This family of functions can be used to convert an expression of any ScopeDB data type to another data type.
 
-## CAST, `::`
+## CAST, ::
 
 Converts a value of one data type into another data type. If the cast is not possible, an error is raised.
 

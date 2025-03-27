@@ -1,7 +1,5 @@
 ---
 sidebar_label: General DML
-toc_min_heading_level: 2
-toc_max_heading_level: 2
 ---
 
 # Data Manipulation Language (DML) statements
