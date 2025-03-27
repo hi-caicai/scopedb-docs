@@ -92,7 +92,6 @@ const sidebars: SidebarsConfig = {
             'functions/temporal-trunc',
           ],
         },
-        'functions-datetime',
         {
           type: 'category',
           label: 'Numeric',

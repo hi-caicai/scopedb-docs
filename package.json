@@ -30,6 +30,8 @@
         "@docusaurus/module-type-aliases": "3.7.0",
         "@docusaurus/tsconfig": "3.7.0",
         "@docusaurus/types": "3.7.0",
+        "cookie": "^1.0.2",
+        "esbuild": "^0.25.1",
         "prismjs": "^1.30.0",
         "typescript": "~5.8.2",
         "utility-types": "^3.11.0",
@@ -50,5 +52,10 @@
     "engines": {
         "node": ">=18.0"
     },
-    "packageManager": "pnpm@10.6.3"
+    "packageManager": "pnpm@10.6.3",
+    "pnpm": {
+        "ignoredBuiltDependencies": [
+            "esbuild"
+        ]
+    }
 }
