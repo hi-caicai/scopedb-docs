@@ -1,8 +1,8 @@
-import { themes as prismThemes } from 'prism-react-renderer';
-import type { Config } from '@docusaurus/types';
-import type * as Preset from '@docusaurus/preset-classic';
-
-import remarkDefList from 'remark-deflist';
+import { themes as prismThemes } from 'prism-react-renderer'
+import type { Config } from '@docusaurus/types'
+import type * as Preset from '@docusaurus/preset-classic'
+import remarkDefList from 'remark-deflist'
+import 'dotenv/config'
 
 const config: Config = {
   title: 'ScopeDB Documents',
@@ -59,6 +59,12 @@ const config: Config = {
       sidebar: {
         autoCollapseCategories: true,
       }
+    },
+    algolia: {
+      appId: process.env.ALGOLIA_APPID,
+      apiKey: process.env.ALGOLIA_APIKEY,
+      indexName: process.env.ALGOLIA_INDEXNAME,
+      searchPagePath: 'search',
     }
   } satisfies Preset.ThemeConfig,
 
