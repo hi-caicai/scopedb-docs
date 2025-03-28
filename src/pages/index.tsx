@@ -14,7 +14,7 @@ function HomepageBanner(): React.JSX.Element {
           Streamline your data management with ScopeDB's comprehensive documentation.
         </div>
         <div className={styles.scopeBtns}>
-          <a href="/reference/overview" className={clsx(styles.scopeBtn, styles.scopeBtnPrimary)}>Read the Docs</a>
+          <a href="/reference/overview/" className={clsx(styles.scopeBtn, styles.scopeBtnPrimary)}>Read the Docs</a>
         </div>
       </div>
     </div>
