@@ -1,0 +1,108 @@
+.heroBanner {
+    padding: 4rem 0;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+@media screen and (max-width: 996px) {
+    .heroBanner {
+        padding: 2rem;
+    }
+}
+
+.buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.scopeBtns {
+    display: flex;
+    justify-content: left;
+    gap: 10px;
+    margin-top: 20px;;
+}
+
+.scopeBtn {
+    padding: 6px 16px;
+    border-radius: 10px;
+    margin: 5px 5px 5px;
+    background: var(--button-secondary-bg);
+    color: var(--button-secondary-font);
+    border: 1px solid var(--button-secondary-border);
+    font-family: Poppins, sans-serif;
+    transition: all .25s;
+    cursor: pointer;
+    font-size: 1vw;
+    white-space: nowrap;
+}
+
+.scopeBtnPrimary {
+    background: var(--button-primary-bg);
+    color: var(--button-primary-font);
+    border: 1px solid var(--button-primary-border);
+}
+
+.scopeBtn:hover {
+    color: var(--button-secondary-font);
+    box-shadow: 0 10px 20px -10px var(--button-secondary-font);
+    text-decoration: none;
+    transform: translateY(-3px);
+}
+
+.scopeBtnPrimary:hover {
+    color: var(--button-primary-font);
+    box-shadow: 0 10px 20px -10px var(--button-primary-font);
+    text-decoration: none;
+    transform: translateY(-3px);
+}
+
+@media (min-width: 997px) {
+    .scopeBanner {
+        padding-left: var(--global-padding);
+    }
+}
+
+@media (max-width: 996px) {
+    .scopeBanner {
+        padding-left: calc(var(--global-padding) / 2);
+    }
+}
+
+
+.scopeBanner {
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+
+    .scopeBannerContent {
+        margin-top: 15%;
+        margin-right: 15%;
+
+        .scopeBannerFeature {
+            font-size: 2.3vw;
+        }
+
+        .scopeBannerTitle {
+            font-size: 4.6vw;
+
+            .scopeBannerBrand {
+                color: var(--font-brand);
+            }
+        }
+
+        .scopeBannerIntro {
+            font-size: 1.2vw;
+            color: var(--font-secondary);
+        }
+
+    }
+
+    .scopeBannerImgView {
+        height: 100%;
+        width: 100vw;
+    }
+}
+
+

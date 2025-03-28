@@ -30,6 +30,7 @@
         "@docusaurus/module-type-aliases": "3.7.0",
         "@docusaurus/tsconfig": "3.7.0",
         "@docusaurus/types": "3.7.0",
+        "@types/react": "^19.0.12",
         "cookie": "^1.0.2",
         "dotenv": "^16.4.7",
         "esbuild": "^0.25.1",
