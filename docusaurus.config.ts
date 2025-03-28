@@ -19,6 +19,9 @@ const config: Config = {
     locales: ['en'],
   },
 
+  // NOTE: DocSearch Crawler needs this to read the proper pages.
+  trailingSlash: true,
+
   presets: [
     [
       'classic',
