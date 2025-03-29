@@ -24,6 +24,8 @@
   --container-max-padding: 40px;
   --container-min-padding: 20px;
   --container-default-padding: 5vw;
+
+  --logo-title-margin: 1rem;
 }
 
 .navbar {
@@ -37,6 +39,10 @@
     var(--container-default-padding),
     var(--container-max-padding)
   );
+}
+
+.navbar__logo {
+  margin-right: var(--logo-title-margin);
 }
 
 .main-wrapper {

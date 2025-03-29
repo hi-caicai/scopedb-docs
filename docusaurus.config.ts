@@ -42,6 +42,7 @@ const config: Config = {
       disableSwitch: true,
     },
     navbar: {
+      title: 'DOCUMENTATION',
       logo: {
         alt: 'ScopeDB Logo',
         src: 'brand-kit/horizontal-no-slogan-trimmed.svg',
