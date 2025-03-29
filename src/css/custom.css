@@ -5,6 +5,9 @@
   --ifm-footer-background-color: rgba(115, 150, 233, 0.61);
   --global-padding: 10vw;
 
+  --ifm-toc-padding-vertical: 0.25rem;
+  --ifm-toc-padding-horizontal: 0.25rem;
+
   --font-primary: rgba(24, 24, 24);
   --font-secondary: rgba(91, 91, 91);
   --font-tertiary: rgba(181, 181, 181);
