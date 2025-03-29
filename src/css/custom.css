@@ -8,6 +8,9 @@
   --ifm-toc-padding-vertical: 0.25rem;
   --ifm-toc-padding-horizontal: 0.25rem;
 
+  --ifm-transition-fast: 200ms;
+  --ifm-menu-link-sublist-icon: url("data:image/svg+xml,%3Csvg width='16' height='16' transform='scale(1 -1)' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M4 6L8 10L12 6' stroke='black' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+
   --font-primary: rgba(24, 24, 24);
   --font-secondary: rgba(91, 91, 91);
   --font-tertiary: rgba(181, 181, 181);
@@ -29,6 +32,16 @@
   --container-default-padding: 5vw;
 
   --logo-title-margin: 1rem;
+}
+
+.menu__caret:before {
+  content: '';
+  background: var(--ifm-menu-link-sublist-icon) 50%;
+  filter: none;
+  height: 1.25rem;
+  transform: rotate(180deg);
+  width: 1.25rem;
+  transition: transform var(--ifm-transition-fast) linear;
 }
 
 .navbar {
