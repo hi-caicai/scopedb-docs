@@ -20,12 +20,8 @@ const { title } = Astro.props;
         <title>{title}</title>
     </head>
     <body>
-        <div class="grid grid-cols-10 gap-x-[32px]">
-            <div class="navbarContainer col-span-10">
-                <Navbar />
-            </div>
-            <div class="mainContainer col-span-10"><slot /></div>
-        </div>
+        <div class="navbarContainer"><Navbar /></div>
+        <div class="mainContainer"><slot /></div>
     </body>
 </html>
 
