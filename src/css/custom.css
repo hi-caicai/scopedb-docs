@@ -20,10 +20,34 @@
   --color-background: rgba(255, 255, 255);
   --color-module: rgba(247, 247, 247);
   --color-brand: rgba(53, 119, 217);
+
+  --container-max-padding: 40px;
+  --container-min-padding: 20px;
+  --container-default-padding: 5vw;
 }
 
-@media (min-width: 997px) {
-  .navbar {
-      padding: 0 var(--global-padding);
-  }
+.navbar {
+  padding-left: clamp(
+    var(--container-min-padding),
+    var(--container-default-padding),
+    var(--container-max-padding)
+  );
+  padding-right: clamp(
+    var(--container-min-padding),
+    var(--container-default-padding),
+    var(--container-max-padding)
+  );
+}
+
+.main-wrapper {
+  padding-left: clamp(
+    var(--container-min-padding),
+    var(--container-default-padding),
+    var(--container-max-padding)
+  );
+  padding-right: clamp(
+    var(--container-min-padding),
+    var(--container-default-padding),
+    var(--container-max-padding)
+  );
 }

@@ -6,6 +6,6 @@ indent_style = space
 insert_final_newline = true
 trim_trailing_whitespace = true
 
-[{*.js,*.ts,*.tsx,*.jsx}]
+[{*.css,*.js,*.ts,*.tsx,*.jsx}]
 indent_size = tab
 tab_width = 2
