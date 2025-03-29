@@ -1,4 +1,6 @@
 ---
+import "@/styles/markdown.css";
+
 import Layout from "@/layouts/Layout.astro";
 import { resolvePageTitle } from "@/lib/pagetitle";
 import { getCollection } from "astro:content";
@@ -17,5 +19,5 @@ const title = resolvePageTitle(entry.data.title, headings);
 ---
 
 <Layout title={title}>
-    <Content />
+    <div class="markdown-body"><Content /></div>
 </Layout>
