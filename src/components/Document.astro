@@ -1,9 +1,30 @@
 ---
 import "@/styles/global.css";
+import type { MarkdownHeading } from "astro";
+
+interface Props {
+    headings: MarkdownHeading[];
+}
+
+const { headings } = Astro.props;
+const visibleHeadings = headings.filter((heading) => heading.depth === 2);
 ---
 
 <div class="grid grid-cols-10 gap-x-[32px]">
     <div class="col-span-2">Sidebar</div>
     <div class="markdown-body col-span-6"><slot /></div>
-    <div class="col-span-2">TableOfContent</div>
+    <div class="col-span-2">
+        {visibleHeadings.length > 0 && <div>On this page</div>}
+        <div>
+            <ul class="list-disc pl-4">
+                {
+                    visibleHeadings.map((heading) => (
+                        <li>
+                            <a href={`#${heading.slug}`}>{heading.text}</a>
+                        </li>
+                    ))
+                }
+            </ul>
+        </div>
+    </div>
 </div>
