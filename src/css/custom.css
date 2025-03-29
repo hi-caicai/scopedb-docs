@@ -29,6 +29,7 @@
 }
 
 .navbar {
+  background-color: #FBFBFB;
   padding-left: clamp(
     var(--container-min-padding),
     var(--container-default-padding),
