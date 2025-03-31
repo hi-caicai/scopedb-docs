@@ -316,14 +316,14 @@ Removes a nodegroup.
 DROP NODEGROUP <name>
 ```
 
-## CREATE TASK
+## CREATE JOB
 
-Creates a new task.
+Creates a new job.
 
 ### Syntax
 
 ```scopeql
-CREATE TASK <name>
+CREATE JOB <name>
 SCHEDULE = '<cronexpr>'
 NODEGROUP = '<comma-separated-nodegroups>'
 AS
@@ -333,30 +333,30 @@ AS
 ### Examples
 
 ```scopeql
-CREATE TASK archive_table_t
+CREATE JOB archive_table_t
 SCHEDULE = '4 2 * * * Asia/Shanghai'
 NODEGROUP = 'background'
 AS DELETE FROM t;
 ```
 
-## DROP TASK
+## DROP JOB
 
-Removes a task.
+Removes a job.
 
 ### Syntax
 
 ```scopeql
-DROP TASK <name>
+DROP JOB <name>
 ```
 
-## SHOW TASKS
+## SHOW JOBS
 
-Lists the tasks for which you have access privileges.
+Lists the jobs for which you have access privileges.
 
 ### Syntax
 
 ```scopeql
-SHOW TASKS
+SHOW JOBS
 ```
 
 ## OPTIMIZE TABLE
