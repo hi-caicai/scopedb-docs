@@ -6,6 +6,10 @@ import { sidebar } from "./src/content/docs/reference/sidebar.ts";
 import { devServerFileWatcher } from "./config/integrations/dev-server-file-watcher.ts";
 import tailwindcss from "@tailwindcss/vite";
 import starlightSidebarTopics from "starlight-sidebar-topics";
+import { loadEnv } from "vite";
+import starlightDocSearch from '@astrojs/starlight-docsearch';
+
+const { ALGOLIA_APIKEY, ALGOLIA_APPID, ALGOLIA_INDEXNAME } = loadEnv('production', process.cwd(), "");
 
 // https://astro.build/config
 export default defineConfig({
@@ -39,6 +43,11 @@ export default defineConfig({
           },
         ]),
         starlightLinksValidator(),
+        starlightDocSearch({
+          appId: ALGOLIA_APPID,
+          apiKey: ALGOLIA_APIKEY,
+          indexName: ALGOLIA_INDEXNAME,
+        }),
       ],
       customCss: ["./src/styles/global.css"],
       components: {

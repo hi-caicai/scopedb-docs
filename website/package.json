@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@astrojs/starlight": "^0.33.0",
+    "@astrojs/starlight-docsearch": "^0.6.0",
     "@astrojs/starlight-tailwind": "^3.0.1",
     "@tailwindcss/vite": "^4.1.3",
     "@types/hast": "^3.0.4",
@@ -31,6 +32,7 @@
     "zod": "^3.24.2"
   },
   "devDependencies": {
-    "prettier": "^3.5.3"
+    "prettier": "^3.5.3",
+    "vite": "^6.3.5"
   }
 }
