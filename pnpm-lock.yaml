@@ -8,8 +8,6 @@ importers:
 
   .: {}
 
-  packages/starlight-scopedb: {}
-
   website:
     dependencies:
       '@astrojs/sitemap':

@@ -1,6 +1,5 @@
 ---
 import config from "virtual:starlight/user-config";
-
 import Search from "virtual:starlight/components/Search";
 import SiteTitle from "@astrojs/starlight/components/SiteTitle.astro";
 import Topics from "../components/Topics.astro";
@@ -16,9 +15,11 @@ const shouldRenderSearch =
 <div>
   <div class="flex">
     <div class="title-wrapper flex items-center gap-[24px]">
-      <!-- TODO: Replace with logo image -->
-      <SiteTitle />
-      <div class="text-[14px] font-[600]">
+      <div class="flex items-center gap-[12px]">
+        <img src="/assets/scopedb_logo.svg" alt="ScopeDB Logo" class="h-[28px] w-[28px]" />
+        <a href="/" class="text-[20px] text-[#000000] font-[600]">ScopeDB</a>
+      </div>
+      <div class="text-[16px] text-[rgba(0,0,0,0.80)] font-[600]">
         DOCUMENTATION
       </div>
     </div>
@@ -33,8 +34,7 @@ const shouldRenderSearch =
       </div>
       {
         shouldRenderSearch && (
-          <!-- TODO: Customized 32px height -->
-          <div class="max-w-[207px]">
+          <div class="search-container">
             <Search />
           </div>
         )
@@ -93,7 +93,7 @@ const shouldRenderSearch =
       );
       display: grid;
       grid-template-columns:
-        /* 1 (site title): runs up until the main content column’s left edge or the width of the title, whichever is the largest  */
+        /* 1 (site title): runs up until the main content column's left edge or the width of the title, whichever is the largest  */
         minmax(
           calc(
             var(--__sidebar-width) +
@@ -107,5 +107,46 @@ const shouldRenderSearch =
         auto;
       align-content: center;
     }
+  }
+
+  .search-container {
+    width: 240px;
+  }
+
+  /* 自定义搜索框样式 */
+  :global(.sl-search) {
+    --sl-search-border-color: #EBEBEB;
+    --sl-search-bg-color: #FBFBFB;
+    --sl-search-text-color: #000000;
+    --sl-search-placeholder-color: rgba(0, 0, 0, 0.4);
+  }
+
+  :global(.sl-search-input) {
+    height: 31px !important;
+    min-height: 32px !important;
+    max-height: 32px !important;
+    border-radius: 6px !important;
+    border: 1px solid var(--sl-search-border-color) !important;
+    background-color: var(--sl-search-bg-color) !important;
+    color: var(--sl-search-text-color) !important;
+    font-size: 14px !important;
+    padding: 0 12px !important;
+    line-height: 32px !important;
+  }
+
+  :global(.sl-search-input::placeholder) {
+    color: var(--sl-search-placeholder-color) !important;
+  }
+
+  :global(.sl-search-input:focus) {
+    border-color: var(--sl-search-border-color) !important;
+    outline: none !important;
+  }
+
+  /* 确保搜索框容器也是正确的高度 */
+  :global(.sl-search > div) {
+    height: 32px !important;
+    min-height: 32px !important;
+    max-height: 32px !important;
   }
 </style>
