@@ -1,30 +1,607 @@
+/* 基础变量定义 */
+:root {
+  /* 文本颜色 */
+  --sl-color-text: #1a1a1a;
+  --sl-color-text-accent: #0066cc;
+  --sl-color-text-invert: #ffffff;
+  --sl-color-text-code: #1a1a1a;
+  
+  /* 背景颜色 */
+  --sl-color-bg: #ffffff;
+  --sl-color-bg-sidebar: #f8f9fa;
+  --sl-color-bg-code: #f8f9fa;
+  --sl-color-bg-inline-code: #f1f3f5;
+  
+  /* 边框颜色 */
+  --sl-color-border: #e5e7eb;
+  --sl-color-border-inline-code: #e2e8f0;
+  
+  /* 强调色 */
+  --sl-color-accent: #2276F4 !important;
+  --sl-color-accent-high: #004c99;
+  
+  /* 字体 */
+  --sl-font-sans: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --sl-font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+  
+  /* 字体大小 */
+  --sl-text-base: 1rem;
+  --sl-text-h1: 2.5rem;
+  --sl-text-h2: 2rem;
+  --sl-text-h3: 1.5rem;
+  --sl-text-h4: 1.25rem;
+  --sl-text-h5: 1.125rem;
+  --sl-text-h6: 1rem;
+  
+  /* 行高 */
+  --sl-line-height-content: 1.6;
+  --sl-line-height-headings: 1.2;
+  
+  /* 间距 */
+  --sl-content-width: 65ch;
+  --sl-content-pad-x: 1.5rem;
+  --sl-space-gap: 1.5rem;
+
+  /* Aside 颜色系统 */
+  --sl-color-blue: #c7d9ec !important;
+  --sl-color-blue-high: #1a5693 !important;
+  --sl-color-blue-low: #e6f0ff !important;
+  
+  --sl-color-green: #059669;
+  --sl-color-green-high: #047857;
+  --sl-color-green-low: #ecfdf5;
+  
+  --sl-color-yellow: #f9dfc2;
+  --sl-color-yellow-high: #8e450d;
+  --sl-color-yellow-low: #fffcf3;
+  
+  --sl-color-red: #dc2626;
+  --sl-color-red-high: #b91c1c;
+  --sl-color-red-low: #fef2f2;
+  
+  --sl-color-purple: #d9c7f9;
+  --sl-color-purple-high: #b898ea;
+  --sl-color-purple-low: #f5f3ff;
+
+  /* Expressive Code 变量 */
+  --ec-brdWd: 1px;
+  --ec-brdRad: 0.5rem;
+  --ec-brdCol: var(--sl-color-border);
+  --ec-codeBg: var(--sl-color-bg-code);
+  --code-background: var(--sl-color-bg-code);
+}
+
+/* Markdown 内容容器 */
 .sl-markdown-content {
-    /* Style the Markdown heading links. */
-    :is(h1, h2, h3, h4, h5, h6):not(:where(.not-content *)) > a {
-      color: var(--sl-color-white);
-      text-decoration: none;
-  
-      &:hover {
-        text-decoration: underline;
-      }
-    }
-  
-    code:not(:where(.not-content *)) {
-      border-radius: 0.25rem;
-      border-style: solid;
-      border-width: 1px;
-      border-color: var(--sl-color-border-inline-code);
-      padding: 0.125rem 0.25rem;
-    }
-  
-    a:not(:where(.not-content *)) {
-      text-underline-offset: 0.25em;
-    }
+  max-width: var(--sl-content-width);
+  margin: 0 auto;
+  font-family: var(--sl-font-sans);
+  font-size: var(--sl-text-base);
+  line-height: var(--sl-line-height-content);
+  color: var(--sl-color-text);
+}
+
+/* 标题样式 */
+.sl-markdown-content h1 {
+  font-size: var(--sl-text-h1);
+  font-weight: 700;
+  line-height: var(--sl-line-height-headings);
+  margin-top: 2em;
+  margin-bottom: 1em;
+}
+
+.sl-markdown-content h2 {
+  font-size: var(--sl-text-h2);
+  font-weight: 600;
+  line-height: var(--sl-line-height-headings);
+  margin-top: 1.75em;
+  margin-bottom: 0.75em;
+}
+
+.sl-markdown-content h3 {
+  font-size: var(--sl-text-h3);
+  font-weight: 600;
+  line-height: var(--sl-line-height-headings);
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+}
+
+.sl-markdown-content h4 {
+  font-size: var(--sl-text-h4);
+  font-weight: 600;
+  line-height: var(--sl-line-height-headings);
+  margin-top: 1.25em;
+  margin-bottom: 0.5em;
+}
+
+.sl-markdown-content h5 {
+  font-size: var(--sl-text-h5);
+  font-weight: 600;
+  line-height: var(--sl-line-height-headings);
+  margin-top: 1em;
+  margin-bottom: 0.5em;
+}
+
+.sl-markdown-content h6 {
+  font-size: var(--sl-text-h6);
+  font-weight: 600;
+  line-height: var(--sl-line-height-headings);
+  margin-top: 1em;
+  margin-bottom: 0.5em;
+}
+
+/* 标题链接样式 */
+.sl-markdown-content :is(h1, h2, h3, h4, h5, h6):not(:where(.not-content *)) > a {
+  color: var(--sl-color-text);
+  text-decoration: none;
+}
+
+.sl-markdown-content :is(h1, h2, h3, h4, h5, h6):not(:where(.not-content *)) > a:hover {
+  text-decoration: underline;
+}
+
+/* 段落样式 */
+.sl-markdown-content p {
+  margin-bottom: 1.25em;
+  line-height: 1.6;
+}
+
+/* 列表样式 */
+.sl-markdown-content ul,
+.sl-markdown-content ol {
+  margin: 1em 0;
+}
+
+.sl-markdown-content li {
+  margin: 0.5em 0;
+}
+
+/* 链接样式 */
+.sl-markdown-content a:not(:where(.not-content *)) {
+  color: var(--sl-color-accent) !important;
+  text-decoration: none;
+  text-underline-offset: 0.25em!important;
+}
+
+.sl-markdown-content a:not(:where(.not-content *)):hover {
+  color: var(--sl-color-accent-high);
+  text-decoration: underline;
+}
+
+/* 代码样式 */
+.sl-markdown-content code:not(:where(.not-content *)) {
+  font-family: var(--sl-font-mono);
+  font-size: 0.9em;
+  border-radius: 0.25rem;
+  border: 1px solid var(--sl-color-border-inline-code);
+  padding: 0.125rem 0.25rem;
+  background-color: var(--sl-color-bg-inline-code);
+  color: var(--sl-color-text-code);
+}
+
+/* 代码块样式 */
+.sl-markdown-content pre {
+  background-color: var(--sl-color-bg-code);
+  border-radius: 0.5rem;
+  padding: 1rem;
+  margin: 1.5rem 0;
+  overflow-x: auto;
+}
+
+.sl-markdown-content pre code {
+  font-family: var(--sl-font-mono);
+  font-size: 0.9em;
+  line-height: 1.5;
+  border: none;
+  padding: 0;
+  background: none;
+}
+
+/* 引用块样式 */
+.sl-markdown-content blockquote {
+  border-left: 4px solid var(--sl-color-border);
+  margin: 1.5em 0;
+  padding: 0.5em 1em;
+  color: var(--sl-color-text);
+  background-color: var(--sl-color-bg-sidebar);
+}
+
+/* 表格样式系统 */
+.sl-markdown-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5em 0;
+  font-size: 0.95em;
+  overflow: hidden;
+}
+
+.sl-markdown-content table:not(:where(.not-content *)) {
+  display: block;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scrollbar-color: var(--sl-color-border) transparent;
+}
+
+/* 表格滚动条样式 */
+.sl-markdown-content table::-webkit-scrollbar {
+  height: 8px;
+}
+
+.sl-markdown-content table::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.sl-markdown-content table::-webkit-scrollbar-thumb {
+  background-color: var(--sl-color-border);
+  border-radius: 4px;
+}
+
+/* 表头样式 */
+.sl-markdown-content thead {
+  background-color: var(--sl-color-bg-sidebar);
+}
+
+.sl-markdown-content th {
+  padding: 12px;
+  font-weight: 600;
+  text-align: left;
+  color: var(--sl-color-text);
+  white-space: nowrap;
+  border: 1px solid var(--sl-color-border);
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background-color: var(--sl-color-bg-sidebar);
+  padding: 12px!important;
+}
+
+/* 表格单元格样式 */
+.sl-markdown-content td {
+  padding: 12px;
+  border: 1px solid var(--sl-color-border);
+  color: var(--sl-color-text);
+  vertical-align: top;
+  min-width: 120px;
+  padding: 12px!important;
+
+}
+
+/* 表格行样式 */
+.sl-markdown-content tbody tr {
+  transition: background-color 0.2s ease;
+}
+
+.sl-markdown-content tbody tr:hover {
+  background-color: var(--sl-color-bg-sidebar);
+}
+
+/* 表格列对齐 */
+.sl-markdown-content th[align="center"],
+.sl-markdown-content td[align="center"] {
+  text-align: center;
+}
+
+.sl-markdown-content th[align="right"],
+.sl-markdown-content td[align="right"] {
+  text-align: right;
+}
+
+/* 表格内的代码样式 */
+.sl-markdown-content table code {
+  font-size: 0.9em;
+  padding: 0.1em 0.3em;
+  background-color: var(--sl-color-bg-inline-code);
+  border-radius: 0.25rem;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+/* 表格内的链接样式 */
+.sl-markdown-content table a {
+  color: var(--sl-color-accent);
+  text-decoration: none;
+  word-break: break-word;
+}
+
+.sl-markdown-content table a:hover {
+  text-decoration: underline;
+}
+
+/* 表格内容样式 */
+.sl-markdown-content table p {
+  margin: 0;
+  padding: 0;
+}
+
+.sl-markdown-content table ul,
+.sl-markdown-content table ol {
+  margin: 0.5em 0;
+  padding-left: 1.5em;
+}
+
+/* 响应式表格 */
+@media (max-width: 768px) {
+  .sl-markdown-content table {
+    font-size: 0.9em;
   }
   
-  /* <code> inside asides */
-  @supports (border-color: color-mix(in srgb, var(--sl-color-asides-text-accent) 12%, transparent)) {
-    .sl-markdown-content .starlight-aside code:not(:where(.not-content *)) {
-      border-color: color-mix(in srgb, var(--sl-color-asides-text-accent) 12%, transparent);
-    }
+  .sl-markdown-content th,
+  .sl-markdown-content td {
+    padding: 8px;
+    min-width: 100px;
   }
+}
+
+/* 水平线样式 */
+.sl-markdown-content hr {
+  border: none;
+  border-top: 1px solid var(--sl-color-border);
+  margin: 2em 0;
+}
+
+/* 图片样式 */
+.sl-markdown-content img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 0.5rem;
+}
+
+/* 响应式布局 */
+@media (min-width: 50rem) {
+  .sl-markdown-content {
+    --sl-content-pad-x: 2rem;
+  }
+}
+
+@media (min-width: 72rem) {
+  .sl-markdown-content {
+    --sl-content-pad-x: 3rem;
+  }
+}
+
+/* 代码块在侧边栏中的样式 */
+@supports (border-color: color-mix(in srgb, var(--sl-color-asides-text-accent) 12%, transparent)) {
+  .sl-markdown-content .starlight-aside code:not(:where(.not-content *)) {
+    border-color: color-mix(in srgb, var(--sl-color-asides-text-accent) 12%, transparent);
+  }
+}
+
+/* Aside 样式系统 */
+.sl-markdown-content .starlight-aside {
+  border-radius: 0.5rem;
+  border: 1px solid var(--sl-color-asides-border);
+  margin: 1.5rem 0;
+  padding: 1rem;
+  background-color: var(--sl-color-asides-bg);
+  color: var(--sl-color-asides-text);
+}
+
+/* Note 样式 */
+.sl-markdown-content .starlight-aside--note {
+  --sl-color-asides-text-accent: var(--sl-color-blue-high)!important;
+  --sl-color-asides-border: var(--sl-color-blue);
+  --sl-color-asides-bg: var(--sl-color-blue-low);
+  --sl-color-asides-text: var(--sl-color-text);
+}
+
+/* Tip 样式 */
+.sl-markdown-content .starlight-aside--tip {
+  --sl-color-asides-text-accent: var(--sl-color-green-high);
+  --sl-color-asides-border: var(--sl-color-green);
+  --sl-color-asides-bg: var(--sl-color-green-low);
+  --sl-color-asides-text: var(--sl-color-text);
+}
+
+/* Caution 样式 */
+.sl-markdown-content .starlight-aside--caution {
+  --sl-color-asides-text-accent: var(--sl-color-yellow-high);
+  --sl-color-asides-border: var(--sl-color-yellow);
+  --sl-color-asides-bg: var(--sl-color-yellow-low);
+  --sl-color-asides-text: var(--sl-color-text);
+}
+
+/* Warning 样式 */
+.sl-markdown-content .starlight-aside--warning {
+  --sl-color-asides-text-accent: var(--sl-color-red-high);
+  --sl-color-asides-border: var(--sl-color-red);
+  --sl-color-asides-bg: var(--sl-color-red-low);
+  --sl-color-asides-text: var(--sl-color-text);
+}
+
+/* Custom 样式 */
+.sl-markdown-content .starlight-aside--custom {
+  --sl-color-asides-text-accent: var(--sl-color-purple-high);
+  --sl-color-asides-border: var(--sl-color-purple);
+  --sl-color-asides-bg: var(--sl-color-purple-low);
+  --sl-color-asides-text: var(--sl-color-text);
+}
+
+/* Aside 标题样式 */
+.sl-markdown-content .starlight-aside__title {
+  color: var(--sl-color-asides-text-accent);
+  font-weight: 600;
+  font-size: 1.1em;
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Aside 内容样式 */
+.sl-markdown-content .starlight-aside__content {
+  color: var(--sl-color-asides-text);
+}
+
+/* Aside 内的代码样式 */
+.sl-markdown-content .starlight-aside code {
+  background-color: color-mix(in srgb, var(--sl-color-asides-text-accent) 12%, transparent);
+  border-color: color-mix(in srgb, var(--sl-color-asides-text-accent) 12%, transparent);
+  color: var(--sl-color-asides-text-accent);
+}
+
+/* Aside 内的链接样式 */
+.sl-markdown-content .starlight-aside a {
+  color: var(--sl-color-asides-text-accent);
+  text-decoration: underline;
+  text-underline-offset: 0.25em;
+}
+
+.sl-markdown-content .starlight-aside a:hover {
+  color: var(--sl-color-asides-text-accent);
+  opacity: 0.8;
+}
+
+/* Expressive Code 样式 */
+.expressive-code {
+  margin: 1.5rem 0;
+}
+
+.expressive-code .frame {
+  border-radius: 32px;
+  overflow: hidden;
+}
+
+.expressive-code .frame pre {
+    background: #f6f6f6 !important;
+    border-radius: 10px !important;
+}
+
+.expressive-code pre {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  border: var(--ec-brdWd) solid var(--ec-brdCol);
+  border-radius: 32px;
+  background: var(--ec-codeBg);
+  overflow-x: auto;
+}
+
+.expressive-code code {
+  font-family: var(--sl-font-mono);
+  font-size: 0.9em;
+  line-height: 1.5;
+  padding: 0;
+  background: none;
+  border: none;
+}
+
+/* 分页链接样式 */
+.pagination-links {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(18rem, 100%), 1fr));
+  gap: 1rem;
+  margin: 2rem 0;
+}
+
+.pagination-links a {
+  display: flex;
+  padding: 1rem;
+  border: 1px solid var(--sl-color-border);
+  border-radius: 12px;
+  text-decoration: none;
+  color: rgba(0, 0, 0, 0.4);
+  transition: all 0.2s ease-in-out;
+  box-shadow: none;
+  font-size: 14px !important;
+}
+
+.pagination-links a:hover {
+  background-color: var(--sl-color-bg-sidebar);
+  border-color: var(--sl-color-accent);
+}
+
+.pagination-links .pagination-label {
+  font-size: 0.875rem;
+  color: var(--sl-color-text-accent);
+  margin-bottom: 0.25rem;
+}
+
+.pagination-links .pagination-title {
+  font-weight: 500;
+  font-size: 1rem;
+  color: var(--sl-color-text);
+}
+
+/* 分页链接标题样式 */
+.link-title:where(.astro-wfjc32mh) {
+  color: var(--sl-color-text);
+  font-size: 18px !important; /* 对应 var(--sl-text-2xl) */
+  font-weight: 600;
+  line-height: var(--sl-line-height-headings);
+  margin: 0 0 1rem 0;
+  padding-bottom: 0.5rem;
+}
+
+
+
+/* 右侧边栏样式 */
+
+
+.right-sidebar-panel {
+    padding: 1.5rem;
+    background-color: var(--sl-color-bg-sidebar);
+    border-radius: 0.5rem;
+    margin-bottom: 1.5rem;
+    
+  }
+  
+  .right-sidebar-panel h2 {
+    color: var(--sl-color-text);
+    font-size: 14px !important;
+    font-weight: 600;
+    line-height: var(--sl-line-height-headings);
+    margin: 0 0 1rem 0;
+    padding-bottom: 0.5rem;
+  }
+  
+  .right-sidebar-panel h3 {
+    color: var(--sl-color-text);
+    font-size: var(--sl-text-h6);
+    font-weight: 600;
+    line-height: var(--sl-line-height-headings);
+    margin: 1.25rem 0 0.75rem 0;
+  }
+
+.right-sidebar-panel ul,
+.right-sidebar-panel ol {
+  padding-left: 0px;
+
+
+}
+
+.right-sidebar-panel li {
+  color: var(--sl-color-text);
+  font-size: 12px!important;
+}
+
+.right-sidebar-panel a {
+  color: rgba(0, 0, 0, 0.5);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.right-sidebar-panel a:hover {
+  color: #000;
+  text-decoration: underline;
+}
+
+
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+  .right-sidebar-panel {
+    padding: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .right-sidebar-panel h2 {
+    font-size: var(--sl-text-h6);
+    margin-bottom: 0.75rem;
+  }
+
+  .right-sidebar-panel h3 {
+    font-size: 1rem;
+    margin: 1rem 0 0.5rem 0;
+  }
+}
