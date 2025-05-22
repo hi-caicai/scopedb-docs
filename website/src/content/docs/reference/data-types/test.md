@@ -1,9 +1,51 @@
 ---
-title: test
+title: test2
 ---
 
-# Dillinger
-## _The Last Markdown Editor, Ever_
+
+
+:::note
+**Note:** Dillinger is a cloud-enabled, mobile-ready, offline-storage compatible, AngularJS-powered HTML5 Markdown editor. It's designed to be simple yet powerful.
+:::
+
+:::tip
+**Tip:** You can import files from various cloud storage services like GitHub, Dropbox, Google Drive and One Drive. Just link your accounts and start importing!
+:::
+
+:::caution
+**Caution:** When working with large files, make sure to save your work frequently. While Dillinger has auto-save functionality, it's always good practice to manually save important changes.
+:::
+
+:::warning
+**Warning:** The Docker deployment requires `--cap-add=SYS_ADMIN` for PDF rendering. Without this capability, PDF export features will not work properly.
+:::
+
+
+:::note
+Starlight is a documentation website toolkit built with [Astro](https://astro.build/). You can get started with this command:
+
+```sh
+npm create astro@latest -- --template starlight
+```
+
+:::
+
+
+
+:::caution
+If you are not sure you want an awesome docs site, think twice before using [Starlight](/).
+:::
+
+:::danger
+Your users may be more productive and find your product easier to use thanks to helpful Starlight features.
+
+- Clear navigation
+- User-configurable colour theme
+- [i18n support](/guides/i18n/)
+
+:::
+
+
 
 [![N|Solid](https://cldup.com/dTxpPi9lDf.thumb.png)](https://nodesource.com/products/nsolid)
 
@@ -442,3 +484,318 @@ It converts "HTML", but keep intact partial entries like "xxxHTMLyyy" and so on.
 ::: warning
 *here be dragons*
 :::
+
+## Code Examples
+
+### JavaScript Example
+```js
+// JavaScript 示例
+const calculateTotal = (items) => {
+  return items.reduce((total, item) => {
+    const { price, quantity } = item;
+    return total + (price * quantity);
+  }, 0);
+};
+
+class ShoppingCart {
+  constructor() {
+    this.items = [];
+  }
+
+  addItem(item) {
+    this.items.push(item);
+    console.log(`Added ${item.name} to cart`);
+  }
+
+  getTotal() {
+    return calculateTotal(this.items);
+  }
+}
+
+// 使用示例
+const cart = new ShoppingCart();
+cart.addItem({ name: 'Apple', price: 1.99, quantity: 3 });
+cart.addItem({ name: 'Banana', price: 0.99, quantity: 5 });
+console.log(`Total: $${cart.getTotal().toFixed(2)}`);
+```
+
+### TypeScript Example
+```ts
+// TypeScript 示例
+interface User {
+  id: number;
+  name: string;
+  email: string;
+  role: 'admin' | 'user' | 'guest';
+}
+
+type UserResponse = {
+  data: User[];
+  total: number;
+  page: number;
+};
+
+async function fetchUsers(page: number = 1): Promise<UserResponse> {
+  try {
+    const response = await fetch(`/api/users?page=${page}`);
+    if (!response.ok) {
+      throw new Error('Failed to fetch users');
+    }
+    return await response.json();
+  } catch (error) {
+    console.error('Error fetching users:', error);
+    throw error;
+  }
+}
+
+// 泛型示例
+function getProperty<T, K extends keyof T>(obj: T, key: K): T[K] {
+  return obj[key];
+}
+```
+
+### Python Example
+```python
+# Python 示例
+from typing import List, Dict, Optional
+from dataclasses import dataclass
+from datetime import datetime
+
+@dataclass
+class Product:
+    id: int
+    name: str
+    price: float
+    in_stock: bool
+    created_at: datetime
+    tags: List[str]
+    metadata: Optional[Dict[str, str]] = None
+
+def calculate_discount(products: List[Product], discount_rate: float) -> List[Product]:
+    """计算商品折扣价格"""
+    if not 0 <= discount_rate <= 1:
+        raise ValueError("Discount rate must be between 0 and 1")
+    
+    discounted_products = []
+    for product in products:
+        if product.in_stock:
+            discounted_price = product.price * (1 - discount_rate)
+            product.price = round(discounted_price, 2)
+            discounted_products.append(product)
+    
+    return discounted_products
+
+# 使用示例
+products = [
+    Product(
+        id=1,
+        name="Laptop",
+        price=999.99,
+        in_stock=True,
+        created_at=datetime.now(),
+        tags=["electronics", "computers"]
+    ),
+    Product(
+        id=2,
+        name="Mouse",
+        price=29.99,
+        in_stock=False,
+        created_at=datetime.now(),
+        tags=["electronics", "accessories"]
+    )
+]
+
+try:
+    discounted = calculate_discount(products, 0.2)
+    for product in discounted:
+        print(f"{product.name}: ${product.price}")
+except ValueError as e:
+    print(f"Error: {e}")
+```
+
+### SQL Example
+```sql
+-- SQL 示例
+CREATE TABLE users (
+    id SERIAL PRIMARY KEY,
+    username VARCHAR(50) NOT NULL UNIQUE,
+    email VARCHAR(255) NOT NULL UNIQUE,
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+    is_active BOOLEAN DEFAULT TRUE
+);
+
+CREATE TABLE orders (
+    id SERIAL PRIMARY KEY,
+    user_id INTEGER REFERENCES users(id),
+    order_date TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+    total_amount DECIMAL(10,2) NOT NULL,
+    status VARCHAR(20) CHECK (status IN ('pending', 'completed', 'cancelled'))
+);
+
+-- 复杂查询示例
+WITH user_order_stats AS (
+    SELECT 
+        u.id,
+        u.username,
+        COUNT(o.id) as total_orders,
+        SUM(o.total_amount) as total_spent,
+        AVG(o.total_amount) as avg_order_value
+    FROM users u
+    LEFT JOIN orders o ON u.id = o.user_id
+    WHERE u.is_active = TRUE
+    GROUP BY u.id, u.username
+)
+SELECT 
+    username,
+    total_orders,
+    total_spent,
+    avg_order_value,
+    CASE 
+        WHEN total_spent > 1000 THEN 'VIP'
+        WHEN total_spent > 500 THEN 'Regular'
+        ELSE 'New'
+    END as customer_type
+FROM user_order_stats
+ORDER BY total_spent DESC
+LIMIT 10;
+```
+
+### HTML/CSS Example
+```html
+<!-- HTML/CSS 示例 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Card Layout</title>
+    <style>
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            padding: 1.5rem;
+        }
+
+        .card {
+            background: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+        }
+
+        .card__image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px 8px 0 0;
+        }
+
+        .card__content {
+            padding: 1.5rem;
+        }
+
+        .card__title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #1a1a1a;
+        }
+
+        .card__text {
+            color: #666;
+            line-height: 1.5;
+        }
+
+        @media (max-width: 768px) {
+            .card-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="card-grid">
+        <article class="card">
+            <img src="image1.jpg" alt="Card 1" class="card__image">
+            <div class="card__content">
+                <h2 class="card__title">Card Title 1</h2>
+                <p class="card__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            </div>
+        </article>
+        <!-- More cards... -->
+    </div>
+</body>
+</html>
+```
+
+### Shell Script Example
+```bash
+#!/bin/bash
+
+# Shell 脚本示例
+set -euo pipefail
+
+# 配置变量
+BACKUP_DIR="/var/backups"
+LOG_FILE="/var/log/backup.log"
+RETENTION_DAYS=7
+
+# 日志函数
+log() {
+    echo "[$(date '+%Y-%m-%d %H:%M:%S')] $1" | tee -a "$LOG_FILE"
+}
+
+# 检查目录是否存在
+check_directories() {
+    if [[ ! -d "$BACKUP_DIR" ]]; then
+        log "Creating backup directory: $BACKUP_DIR"
+        mkdir -p "$BACKUP_DIR"
+    fi
+}
+
+# 执行备份
+perform_backup() {
+    local source_dir="$1"
+    local backup_name="backup_$(date +%Y%m%d_%H%M%S).tar.gz"
+    
+    log "Starting backup of $source_dir"
+    
+    if tar -czf "$BACKUP_DIR/$backup_name" -C "$(dirname "$source_dir")" "$(basename "$source_dir")"; then
+        log "Backup completed successfully: $backup_name"
+    else
+        log "Backup failed!"
+        exit 1
+    fi
+}
+
+# 清理旧备份
+cleanup_old_backups() {
+    log "Cleaning up backups older than $RETENTION_DAYS days"
+    find "$BACKUP_DIR" -name "backup_*.tar.gz" -mtime +$RETENTION_DAYS -delete
+}
+
+# 主函数
+main() {
+    check_directories
+    
+    # 备份多个目录
+    for dir in "/etc" "/var/www" "/home/user/documents"; do
+        if [[ -d "$dir" ]]; then
+            perform_backup "$dir"
+        else
+            log "Warning: Directory $dir does not exist"
+        fi
+    done
+    
+    cleanup_old_backups
+    log "Backup process completed"
+}
+
+# 执行主函数
+main "$@"
+```
