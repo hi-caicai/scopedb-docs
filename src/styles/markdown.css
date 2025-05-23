@@ -789,8 +789,6 @@
   text-decoration: none;
   transition: color 0.2s ease;
   --pad-inline: 16px;
-  
-
 }
 
 .right-sidebar-panel a:hover {
