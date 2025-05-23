@@ -1,30 +1,29 @@
-/* 基础变量定义 */
 :root {
-  /* 文本颜色 */
+  /* Text Color */
   --sl-color-text: #1a1a1a;
   --sl-color-text-accent: #0066cc;
   --sl-color-text-invert: #ffffff;
   --sl-color-text-code: #1a1a1a;
-  
-  /* 背景颜色 */
+
+  /* Background Color */
   --sl-color-bg: #ffffff;
   --sl-color-bg-sidebar: #f8f9fa;
   --sl-color-bg-code: #f8f9fa;
   --sl-color-bg-inline-code: #f1f3f5;
-  
-  /* 边框颜色 */
+
+  /* Border Color */
   --sl-color-border: #e5e7eb;
   --sl-color-border-inline-code: #e2e8f0;
-  
-  /* 强调色 */
+
+  /* Accent Color */
   --sl-color-accent: #2276F4 !important;
   --sl-color-accent-high: #004c99;
-  
-  /* 字体 */
+
+  /* Font Family */
   --sl-font-sans: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
   --sl-font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
-  
-  /* 字体大小 */
+
+  /* Font Size */
   --sl-text-base: 16px;
   --sl-text-h1: 36px;
   --sl-text-h2: 32px;
@@ -32,80 +31,79 @@
   --sl-text-h4: 24px;
   --sl-text-h5: 20px;
   --sl-text-h6: 16px;
-  --sl-text-code: 14px;
-  
-  /* 行高 */
+
+  /* Line Height */
   --sl-line-height-content: 1.6;
   --sl-line-height-headings: 1.2;
-  
-  /* 间距 */
+
+  /* Content Gap */
   --sl-content-width: 65ch;
   --sl-content-pad-x: 1.5rem;
   --sl-space-gap: 1.5rem;
 
-  /* Aside 颜色系统 */
+  /* Aside Color */
   --sl-color-blue: #b8c9dc !important;
   --sl-color-blue-high: #1e4b77 !important;
   --sl-color-blue-low: #e6f0ff !important;
-  
+
   --sl-color-green: #c6dbd4 !important;
   --sl-color-green-high: #296c59 !important;
   --sl-color-green-low: #f3fef9 !important;
-  
+
   --sl-color-orange: #efe0ce !important;
   --sl-color-orange-high: #8e450d !important;
   --sl-color-orange-low: #fff9e6 !important;
-  
+
   --sl-color-red: #e9baba !important;
   --sl-color-red-high: #ad1a1a !important;
   --sl-color-red-low: #fdf1f1 !important;
-  
+
   --sl-color-purple: #d9c7f9 !important;
   --sl-color-purple-high: #b898ea !important;
   --sl-color-purple-low: #f1eeff !important;
 
-  /* Expressive Code 变量 */
+  /* Expressive Code */
   --ec-brdWd: 1px;
   --ec-brdRad: 0px;
   --ec-brdCol: color-mix(in srgb, var(--sl-color-gray-5), transparent 25%);
   --ec-codeBg: #23262f;
   --ec-codeFg: #d6deeb;
   --ec-codeSelBg: #1d3b53;
-  
-  /* 代码字体 */
+
+  /* Code Font */
   --ec-codeFontFml: var(--sl-font-mono) !important;
   --ec-codeFontSize: var(--sl-text-code) !important;
   --ec-codeFontWg: 400;
   --ec-codeLineHt: var(--sl-line-height-content) !important;
-  
-  /* 代码块内边距 */
+
+  /* Code Pad */
   --ec-codePadBlk: 0rem !important;
   --ec-codePadInl: 4px !important;
-  
-  /* 行号样式 */
+
+  /* Line Number */
   --ec-gtrFg: #63798b;
   --ec-gtrBrdCol: #63798b33;
   --ec-gtrBrdWd: 1.5px;
   --ec-gtrHlFg: #c5e4fd97;
-  
-  /* UI 字体 */
+
+  /* UI Font */
   --ec-uiFontFml: var(--sl-font-sans);
-  --ec-uiFontSize: 14px !important;
+  --ec-uiFontSize: 0.9rem;
   --ec-uiFontWg: 400;
   --ec-uiLineHt: 1.65;
   --ec-uiPadBlk: 0.25rem;
   --ec-uiPadInl: 1rem;
-  
-  /* 选择和高亮 */
+
+  /* Select and Focus */
   --ec-uiSelBg: #234d708c;
   --ec-uiSelFg: #ffffff;
   --ec-focusBrd: #122d42;
-  
-  /* 滚动条 */
+
+  /* Tunmb */
   --ec-sbThumbCol: #ffffff17;
   --ec-sbThumbHoverCol: #ffffff47;
 
-  /* 代码高亮颜色变量 */
+  /* Code Highlight */
   --shiki-color-text: #d4d4d4;
   --shiki-color-background: rgba(255, 255, 255, 0.2);
   --shiki-token-constant: #b5cea8;
@@ -142,7 +140,7 @@
   --shiki-token-attribute: #9cdcfe;
 }
 
-/* Markdown 内容容器 */
+/* Markdown Content */
 .sl-markdown-content {
   max-width: var(--sl-content-width);
   margin: 0 auto;
@@ -152,7 +150,7 @@
   color: var(--sl-color-text);
 }
 
-/* 标题样式 */
+/* Headings */
 .sl-markdown-content h1 {
   font-size: var(--sl-text-h1);
   font-weight: 700;
@@ -201,7 +199,7 @@
   margin-bottom: 0.5em;
 }
 
-/* 标题链接样式 */
+/* Heading Links */
 .sl-markdown-content :is(h1, h2, h3, h4, h5, h6):not(:where(.not-content *)) > a {
   color: var(--sl-color-text);
   text-decoration: none;
@@ -211,13 +209,13 @@
   text-decoration: underline;
 }
 
-/* 段落样式 */
+/* Paragraph */
 .sl-markdown-content p {
   margin-bottom: 1.25em;
   line-height: 1.6;
 }
 
-/* 列表样式系统 */
+/* List */
 .sl-markdown-content ul,
 .sl-markdown-content ol {
   margin: 1em 0;
@@ -225,7 +223,7 @@
   list-style-position: outside;
 }
 
-/* 无序列表样式 */
+/* Unordered List */
 .sl-markdown-content ul {
   list-style-type: disc;
 }
@@ -239,7 +237,7 @@
   list-style-type: square;
 }
 
-/* 有序列表样式 */
+/* Ordered List */
 .sl-markdown-content ol {
   list-style-type: decimal;
 }
@@ -253,19 +251,19 @@
   list-style-type: lower-roman;
 }
 
-/* 列表项样式 */
+/* List Item */
 .sl-markdown-content li {
   margin: 0.5em 0;
   line-height: 1.6;
   padding-left: 0.25em;
 }
 
-/* 列表项内的段落样式 */
+/* Paragraph in List */
 .sl-markdown-content li > p {
   margin: 0.5em 0;
 }
 
-/* 列表项内的代码样式 */
+/* Code in List */
 .sl-markdown-content li code {
   font-size: 0.9em;
   padding: 0.1em 0.3em;
@@ -273,7 +271,7 @@
   border-radius: 0.25rem;
 }
 
-/* 列表项内的链接样式 */
+/* Link in List */
 .sl-markdown-content li a {
   color: var(--sl-color-accent);
   text-decoration: none;
@@ -283,20 +281,20 @@
   text-decoration: underline;
 }
 
-/* 任务列表样式 */
+/* Checkbox */
 .sl-markdown-content li > input[type="checkbox"] {
   margin-right: 0.5em;
   vertical-align: middle;
 }
 
-/* 列表项内的嵌套列表样式 */
+/* Nested Lists */
 .sl-markdown-content li > ul,
 .sl-markdown-content li > ol {
   margin: 0.5em 0;
   padding-left: 1.5em;
 }
 
-/* 列表项内的引用样式 */
+/* Blockquote in List */
 .sl-markdown-content li > blockquote {
   margin: 0.5em 0;
   padding: 0.5em 1em;
@@ -304,13 +302,13 @@
   background-color: var(--sl-color-bg-sidebar);
 }
 
-/* 列表项内的表格样式 */
+/* Table in List */
 .sl-markdown-content li > table {
   margin: 0.5em 0;
   font-size: 0.95em;
 }
 
-/* 响应式调整 */
+/* Flexible Layout */
 @media (max-width: 768px) {
   .sl-markdown-content ul,
   .sl-markdown-content ol {
@@ -327,7 +325,7 @@
   }
 }
 
-/* 链接样式 */
+/* Link */
 .sl-markdown-content a:not(:where(.not-content *)) {
   color: var(--sl-color-accent) !important;
   text-decoration: none;
@@ -339,7 +337,7 @@
   text-decoration: underline;
 }
 
-/* 代码样式 */
+/* Code */
 .sl-markdown-content code:not(:where(.not-content *)) {
   font-family: var(--sl-font-mono);
   font-size: 0.9em;
@@ -350,7 +348,7 @@
   color: var(--sl-color-text-code);
 }
 
-/* 代码块样式 */
+/* Code Block */
 .sl-markdown-content pre {
   background-color: var(--sl-color-bg-code);
   border-radius: 0.5rem;
@@ -368,7 +366,7 @@
   background: none;
 }
 
-/* 引用块样式 */
+/* Blockquote */
 .sl-markdown-content blockquote {
   border-left: 4px solid var(--sl-color-border);
   margin: 1.5em 0;
@@ -377,7 +375,7 @@
   background-color: var(--sl-color-bg-sidebar);
 }
 
-/* 表格样式系统 */
+/* Table */
 .sl-markdown-content table {
   width: 100%;
   border-collapse: collapse;
@@ -394,7 +392,7 @@
   scrollbar-color: var(--sl-color-border) transparent;
 }
 
-/* 表格滚动条样式 */
+/* Table Scrollbar */
 .sl-markdown-content table::-webkit-scrollbar {
   height: 8px;
 }
@@ -408,7 +406,7 @@
   border-radius: 4px;
 }
 
-/* 表头样式 */
+/* Table Header */
 .sl-markdown-content thead {
   background-color: var(--sl-color-bg-sidebar);
 }
@@ -427,7 +425,7 @@
   padding: 12px!important;
 }
 
-/* 表格单元格样式 */
+/* Table Cell */
 .sl-markdown-content td {
   padding: 12px;
   border: 1px solid var(--sl-color-border);
@@ -438,7 +436,7 @@
 
 }
 
-/* 表格行样式 */
+/* Table Row */
 .sl-markdown-content tbody tr {
   transition: background-color 0.2s ease;
 }
@@ -447,7 +445,7 @@
   background-color: var(--sl-color-bg-sidebar);
 }
 
-/* 表格列对齐 */
+/* Table Vertical Alignment */
 .sl-markdown-content th[align="center"],
 .sl-markdown-content td[align="center"] {
   text-align: center;
@@ -458,7 +456,7 @@
   text-align: right;
 }
 
-/* 表格内的代码样式 */
+/* Code in Table */
 .sl-markdown-content table code {
   font-size: 0.9em;
   padding: 0.1em 0.3em;
@@ -468,7 +466,7 @@
   word-break: break-word;
 }
 
-/* 表格内的链接样式 */
+/* Link in Table */
 .sl-markdown-content table a {
   color: var(--sl-color-accent);
   text-decoration: none;
@@ -479,7 +477,7 @@
   text-decoration: underline;
 }
 
-/* 表格内容样式 */
+/* Paragraph in Table */
 .sl-markdown-content table p {
   margin: 0;
   padding: 0;
@@ -491,21 +489,21 @@
   padding-left: 1.5em;
 }
 
-/* 水平线样式 */
+/* Horizontal Line */
 .sl-markdown-content hr {
   border: none;
   border-top: 1px solid var(--sl-color-border);
   margin: 2em 0;
 }
 
-/* 图片样式 */
+/* Image */
 .sl-markdown-content img {
   max-width: 100%;
   height: auto;
   border-radius: 0.5rem;
 }
 
-/* 响应式布局 */
+/* Flexible Layout */
 @media (min-width: 50rem) {
   .sl-markdown-content {
     --sl-content-pad-x: 2rem;
@@ -518,14 +516,14 @@
   }
 }
 
-/* 代码块在侧边栏中的样式 */
+/* Code in Aside */
 @supports (border-color: color-mix(in srgb, var(--sl-color-asides-text-accent) 12%, transparent)) {
   .sl-markdown-content .starlight-aside code:not(:where(.not-content *)) {
     border-color: color-mix(in srgb, var(--sl-color-asides-text-accent) 12%, transparent);
   }
 }
 
-/* Aside 样式系统 */
+/* Aside Style */
 .sl-markdown-content .starlight-aside {
   border-radius: 12px;
   border: 1px solid var(--sl-color-asides-border);
@@ -537,7 +535,7 @@
 }
 
 
-/* 响应式调整 */
+/* Flexible Layout */
 @media (max-width: 768px) {
   .sl-markdown-content .starlight-aside {
     margin: 1.25rem 0;
@@ -555,13 +553,13 @@
   }
 }
 
-/* Expressive Code 样式 */
+/* Expressive Code */
 .expressive-code {
-  font-family: var(--ec-uiFontFml)!important;
-  font-size: var(--ec-uiFontSize)!important;
-  font-weight: var(--ec-uiFontWg)!important;
-  line-height: var(--ec-uiLineHt)!important;
-  margin: 24px 0!important;
+  font-family: var(--ec-uiFontFml);
+  font-size: var(--ec-uiFontSize);
+  font-weight: var(--ec-uiFontWg);
+  line-height: var(--ec-uiLineHt);
+  margin: 24px 0;
   position: relative;
 }
 
@@ -605,7 +603,7 @@
   border: none;
 }
 
-/* 代码行样式 */
+/* Code Line */
 .expressive-code .ec-line {
   display: grid;
   grid-template-areas: 'gutter code';
@@ -626,7 +624,7 @@
   padding: 0 var(--ec-codePadInl);
 }
 
-/* 滚动条样式 */
+/* Scrollbar */
 .expressive-code pre::-webkit-scrollbar {
   height: 8px;
   width: 8px;
@@ -645,7 +643,7 @@
   background-color: var(--ec-sbThumbHoverCol);
 }
 
-/* 复制按钮样式 */
+/* Copy Button */
 .expressive-code .copy {
   position: absolute;
   top: calc(var(--ec-brdWd) + 0.75rem);
@@ -673,7 +671,7 @@
   background: var(--ec-codeSelBg);
 }
 
-/* 代码高亮标记 */
+/* Code Highlight */
 .expressive-code .token.comment { color: #6a9955; }
 .expressive-code .token.string { color: #ce9178; }
 .expressive-code .token.number { color: #b5cea8; }
@@ -687,7 +685,7 @@
 .expressive-code .token.operator { color: #d4d4d4; }
 .expressive-code .token.punctuation { color: #d4d4d4; }
 
-/* 亮色主题代码高亮 */
+/* Code Hightlight: Light Mode */
 @media (prefers-color-scheme: light) {
   .expressive-code .token.comment { color: #008000; }
   .expressive-code .token.string { color: #a31515; }
@@ -703,7 +701,7 @@
   .expressive-code .token.punctuation { color: #000000; }
 }
 
-/* 分页链接样式 */
+/* Link in Pagination */
 .pagination-links {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(18rem, 100%), 1fr));
@@ -740,41 +738,41 @@
   color: var(--sl-color-text);
 }
 
-/* 分页链接标题样式 */
+/* Title in Pagination */
 .link-title:where(.astro-wfjc32mh) {
   color: var(--sl-color-text);
-  font-size: 18px !important; /* 对应 var(--sl-text-2xl) */
+  font-size: 18px !important; /* var(--sl-text-2xl) */
   font-weight: 600;
   line-height: var(--sl-line-height-headings);
   margin: 0 0 1rem 0;
   padding-bottom: 0.5rem;
 }
 
-/* 右侧边栏样式 */
+/* Right Sidebar */
 .right-sidebar-panel {
     padding: 1.5rem;
     background-color: var(--sl-color-bg-sidebar);
     border-radius: 0.5rem;
     margin-bottom: 1.5rem;
-    
-  }
-  
-  .right-sidebar-panel h2 {
-    color: var(--sl-color-text);
-    font-size: 14px !important;
-    font-weight: 600;
-    line-height: var(--sl-line-height-headings);
-    margin: 0 0 1rem 0;
-    padding-bottom: 0.5rem;
-  }
-  
-  .right-sidebar-panel h3 {
-    color: var(--sl-color-text);
-    font-size: var(--sl-text-h6);
-    font-weight: 600;
-    line-height: var(--sl-line-height-headings);
-    margin: 1.25rem 0 0.75rem 0;
-  }
+
+}
+
+.right-sidebar-panel h2 {
+  color: var(--sl-color-text);
+  font-size: 14px !important;
+  font-weight: 600;
+  line-height: var(--sl-line-height-headings);
+  margin: 0 0 1rem 0;
+  padding-bottom: 0.5rem;
+}
+
+.right-sidebar-panel h3 {
+  color: var(--sl-color-text);
+  font-size: var(--sl-text-h6);
+  font-weight: 600;
+  line-height: var(--sl-line-height-headings);
+  margin: 1.25rem 0 0.75rem 0;
+}
 
 .right-sidebar-panel ul,
 .right-sidebar-panel ol {
@@ -797,7 +795,7 @@
   text-decoration: underline;
 }
 
-/* 响应式调整 */
+/* Flexible Layout */
 @media (max-width: 768px) {
   .right-sidebar-panel {
     padding: 1rem;
