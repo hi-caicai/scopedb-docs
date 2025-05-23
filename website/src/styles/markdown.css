@@ -32,6 +32,7 @@
   --sl-text-h4: 24px;
   --sl-text-h5: 20px;
   --sl-text-h6: 16px;
+  --sl-text-code: 14px;
   
   /* 行高 */
   --sl-line-height-content: 1.6;
@@ -89,7 +90,7 @@
   
   /* UI 字体 */
   --ec-uiFontFml: var(--sl-font-sans);
-  --ec-uiFontSize: 0.9rem;
+  --ec-uiFontSize: 14px !important;
   --ec-uiFontWg: 400;
   --ec-uiLineHt: 1.65;
   --ec-uiPadBlk: 0.25rem;
@@ -556,11 +557,11 @@
 
 /* Expressive Code 样式 */
 .expressive-code {
-  font-family: var(--ec-uiFontFml);
-  font-size: var(--ec-uiFontSize);
-  font-weight: var(--ec-uiFontWg);
-  line-height: var(--ec-uiLineHt);
-  margin: 24px 0;
+  font-family: var(--ec-uiFontFml)!important;
+  font-size: var(--ec-uiFontSize)!important;
+  font-weight: var(--ec-uiFontWg)!important;
+  line-height: var(--ec-uiLineHt)!important;
+  margin: 24px 0!important;
   position: relative;
 }
 

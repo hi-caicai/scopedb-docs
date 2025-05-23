@@ -164,6 +164,9 @@ const shouldRenderSearch =
   :global(.DocSearch-Container){
     background-color: rgba(244, 244, 244, 0.8);
   }
+  :global(.DocSearch-Hit-content-wrapper){
+    font-size: 14px !important;
+  }
   :global(.DocSearch-Modal){
     border-radius: 16px !important;
     border:none !important;
@@ -178,8 +181,17 @@ const shouldRenderSearch =
     height: 48px !important;
     font-size: 14px !important;
   }
+  :global(.DocSearch-Hit[aria-selected=true] a){
+    background: #0879E0 !important;
+    font-size: 14px !important;
+  }
+
+  :global(.DocSearch-Hit a){  
+    border-radius:12px !important;
+  }
   :global(.DocSearch-Input){
     border-radius: 10px !important;
+    font-size: 14px !important;
   }
   :global(.DocSearch-Footer){
     border-radius:0 0 16px 16px;
@@ -193,6 +205,14 @@ const shouldRenderSearch =
     font-size: 14px !important;
     
   }
+  :global(.DocSearch-Hit-source){
+    background: #fbfbfb00 !important;
+    color: rgba(0, 0, 0, 0.6) !important;
+    font-size: 12px !important;
+    margin: 0 !important;
+    padding: 8px !important;
+
+  }
   :global(.DocSearch-Screen-Icon){
     justify-items:center
   }
@@ -203,4 +223,8 @@ const shouldRenderSearch =
     color: #000000 !important;
     
   }
+  :global(.DocSearch-Hit-title){
+
+  }
+
 </style>
