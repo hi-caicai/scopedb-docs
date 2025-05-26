@@ -32,7 +32,7 @@ const shouldRenderSearch =
       </div>
       {
         shouldRenderSearch && (
-          <div class="search-container">
+          <div class="search-container md:min-w-[220px]">
             <Search />
           </div>
         )
@@ -107,9 +107,7 @@ const shouldRenderSearch =
     }
   }
 
-  .search-container {
-    width: 220px;
-  }
+
 
   /* 自定义搜索框样式 */
   :global(.sl-search) {
