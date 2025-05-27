@@ -87,7 +87,8 @@ const shouldRenderSearch =
               var(--__toc-width, var(--sl-sidebar-width)) -
               (2 * var(--__toc-width, var(--sl-nav-pad-x))) -
               var(--sl-content-inline-start, 0rem) - var(--sl-content-width)
-          ) / 2
+          ) /
+          2
       );
       display: grid;
       grid-template-columns:
@@ -107,9 +108,7 @@ const shouldRenderSearch =
     }
   }
 
-
-
-  /* 自定义搜索框样式 */
+  /* Custom Search Window */
   :global(.sl-search) {
     --sl-search-border-color: #ebebeb;
     --sl-search-bg-color: #fbfbfb;
@@ -139,7 +138,7 @@ const shouldRenderSearch =
     outline: none !important;
   }
 
-  /* 确保搜索框容器也是正确的高度 */
+  /* Ensure Search Window Height */
   :global(.sl-search > div) {
     height: 32px !important;
     min-height: 32px !important;
