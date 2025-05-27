@@ -1,7 +1,7 @@
 ---
 import config from "virtual:starlight/user-config";
 import Search from "virtual:starlight/components/Search";
-import Topics from "@/src/components/Topics.astro";
+import Topics from "../components/Topics.astro";
 
 /**
  * Render the `Search` component if Pagefind is enabled or the default search component has been overridden.
@@ -32,7 +32,7 @@ const shouldRenderSearch =
       </div>
       {
         shouldRenderSearch && (
-          <div class="search-container">
+          <div class="search-container md:min-w-[220px]">
             <Search />
           </div>
         )
@@ -41,7 +41,6 @@ const shouldRenderSearch =
   </div>
   <Topics />
 </div>
-
 <style>
   .header {
     gap: var(--sl-nav-gap);
@@ -88,8 +87,7 @@ const shouldRenderSearch =
               var(--__toc-width, var(--sl-sidebar-width)) -
               (2 * var(--__toc-width, var(--sl-nav-pad-x))) -
               var(--sl-content-inline-start, 0rem) - var(--sl-content-width)
-          ) /
-          2
+          ) / 2
       );
       display: grid;
       grid-template-columns:
@@ -109,16 +107,16 @@ const shouldRenderSearch =
     }
   }
 
-  .search-container {
-    width: 220px;
-  }
 
+
+  /* 自定义搜索框样式 */
   :global(.sl-search) {
     --sl-search-border-color: #ebebeb;
     --sl-search-bg-color: #fbfbfb;
     --sl-search-text-color: #000000;
     --sl-search-placeholder-color: rgba(0, 0, 0, 0.4);
   }
+
   :global(.sl-search-input) {
     height: 32px !important;
     min-height: 32px !important;
@@ -131,13 +129,17 @@ const shouldRenderSearch =
     padding: 0 12px !important;
     line-height: 32px !important;
   }
+
   :global(.sl-search-input::placeholder) {
     color: var(--sl-search-placeholder-color) !important;
   }
+
   :global(.sl-search-input:focus) {
     border-color: var(--sl-search-border-color) !important;
     outline: none !important;
   }
+
+  /* 确保搜索框容器也是正确的高度 */
   :global(.sl-search > div) {
     height: 32px !important;
     min-height: 32px !important;
@@ -156,6 +158,9 @@ const shouldRenderSearch =
   :global(.DocSearch-Container) {
     background-color: rgba(244, 244, 244, 0.8);
   }
+  :global(.DocSearch-Hit-content-wrapper) {
+    font-size: 14px !important;
+  }
   :global(.DocSearch-Modal) {
     border-radius: 16px !important;
     border: none !important;
@@ -170,8 +175,17 @@ const shouldRenderSearch =
     height: 48px !important;
     font-size: 14px !important;
   }
+  :global(.DocSearch-Hit[aria-selected="true"] a) {
+    background: #0879e0 !important;
+    font-size: 14px !important;
+  }
+
+  :global(.DocSearch-Hit a) {
+    border-radius: 12px !important;
+  }
   :global(.DocSearch-Input) {
     border-radius: 10px !important;
+    font-size: 14px !important;
   }
   :global(.DocSearch-Footer) {
     border-radius: 0 0 16px 16px;
@@ -185,6 +199,13 @@ const shouldRenderSearch =
   :global(.DocSearch-MagnifierLabel) {
     font-size: 14px !important;
   }
+  :global(.DocSearch-Hit-source) {
+    background: #fbfbfb00 !important;
+    color: rgba(0, 0, 0, 0.6) !important;
+    font-size: 12px !important;
+    margin: 0 !important;
+    padding: 8px !important;
+  }
   :global(.DocSearch-Screen-Icon) {
     justify-items: center;
   }
@@ -193,5 +214,7 @@ const shouldRenderSearch =
     border: 1px solid #ebebeb !important;
     border-radius: 4px !important;
     color: #000000 !important;
+  }
+  :global(.DocSearch-Hit-title) {
   }
 </style>

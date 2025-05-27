@@ -19,7 +19,8 @@ export const sidebar = [
         }, {
             label: 'Conversion',
             link: '/reference/data-types/conversion',
-        }]
+        }
+    ]
     }, {
         label: 'Commands',
         collapsed: true,
